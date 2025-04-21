@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Review Submission</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+      background-color: #FCF7F3;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 0px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .star {
+      color: #ccc;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .star.active {
+      color: gold;
+    }
+    .aspect-ratings {
+      display: none;
+    }
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+  <header>
+<a href='https://www.example.com'><img src="https://static.wixstatic.com/media/818cbe_6b80915765e4490eae3775030fe869d4~mv2.png/v1/fill/w_154,h_154,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/818cbe_6b80915765e4490eae3775030fe869d4~mv2.png"></a>
+  </header>
+  <nav>
+    <a href="food_page_draft.html">Food</a>
+    <a href="shopping_page_draft.html">Shopping</a>
+    <a href="#">Massage</a>
+    <a href="fun_page_draft.html">Fun</a>
+    <a href="#">Salon/Nail</a>
+    <a href="#">Hotel</a>
+    <a href="#">Delivery</a>
+  </nav>
+<a style="color:black" href="restaurant_details_draft.html">Back</a>
+<h1>Leave a review</h1>
+    <form id="reviewForm">
+    <label for="overall-rating"><h3>Overall Rating:</h3></label>
+    <center>
+    <div id="overall-rating">
+      <span style="font-size:45px" class="star">&#9733;</span>
+      <span style="font-size:45px" class="star">&#9733;</span>
+      <span style="font-size:45px" class="star">&#9733;</span>
+      <span style="font-size:45px" class="star">&#9733;</span>
+      <span style="font-size:45px" class="star">&#9733;</span>
+    </div>
+    </center>
+    
+    <div class="aspect-ratings">
+      <label><h4>Food:</h4></label>
+      <center>
+      <div class="food-rating">
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+      </div>
+      </center>
+      
+      <label><h4>Service:</h4></label>
+      <center>
+      <div class="service-rating">
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+      </div>
+      </center>
+      
+      <label><h4>Atmosphere:</h4></label>
+      <center>
+      <div class="atmosphere-rating">
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+        <span style="font-size:35px" class="star">&#9733;</span>
+      </div>
+      </center>
+    </div>
+        <label for="review"><h3>Review:</h3></label>
+        <textarea id="review" name="review" rows="10" cols="80" style="resize: none;" placeholder="Write a review..."></textarea>
+        <div>
+        <button type="submit">Submit Review</button>
+        </div>
+    </form>
+
+    <script>
+        const overallStars = document.querySelectorAll('#overall-rating .star');
+    const aspectRatings = document.querySelector('.aspect-ratings');
+    const foodStars = document.querySelectorAll('.food-rating .star');
+    const serviceStars = document.querySelectorAll('.service-rating .star');
+    const atmosphereStars = document.querySelectorAll('.atmosphere-rating .star');
+
+    overallStars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        for (let i = 0; i < overallStars.length; i++) {
+          overallStars[i].classList.remove('active');
+        }
+        for (let i = 0; i <= index; i++) {
+          overallStars[i].classList.add('active');
+        }
+        aspectRatings.style.display = 'block';
+      });
+    });
+
+    foodStars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        for (let i = 0; i < foodStars.length; i++) {
+          foodStars[i].classList.remove('active');
+        }
+        for (let i = 0; i <= index; i++) {
+          foodStars[i].classList.add('active');
+        }
+      });
+    });
+
+    serviceStars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        for (let i = 0; i < serviceStars.length; i++) {
+          serviceStars[i].classList.remove('active');
+        }
+        for (let i = 0; i <= index; i++) {
+          serviceStars[i].classList.add('active');
+        }
+      });
+    });
+
+    atmosphereStars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        for (let i = 0; i < atmosphereStars.length; i++) {
+          atmosphereStars[i].classList.remove('active');
+        }
+        for (let i = 0; i <= index; i++) {
+          atmosphereStars[i].classList.add('active');
+        }
+      });
+    });
+    
+    
+    
+        const reviewForm = document.getElementById('reviewForm');
+
+        reviewForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(reviewForm);
+            const formValues = Object.fromEntries(formData.entries());
+            console.log(formValues); // You can process the form data here
+            alert('Review submitted successfully!');
+            reviewForm.reset();
+        });
+    </script>
+    
+    <script>
+    const reviewForm = document.getElementById('reviewForm');
+
+    reviewForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(reviewForm);
+
+        fetch('submit_review.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Review submitted successfully!');
+                reviewForm.reset();
+            } else {
+                alert('There was a problem submitting your review.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was a problem submitting your review.');
+        });
+    });
+</script>
+</body>
+</html>
